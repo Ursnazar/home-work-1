@@ -3,23 +3,12 @@ import React from 'react';
 function Profile({ registredAt, name }) {
   function parseDataUser(params, name) {
     let data = {};
-    let arrMonth = [
-      'январь',
-      'февраль',
-      'март',
-      'апрель',
-      'май',
-      'июня',
-      'июль',
-      'август',
-      'сентябрь',
-      'октябрь',
-      'ноябрь',
-      'декабрь',
-    ];
-    data.name = name;
+    let dtFormat = new Intl.DateTimeFormat('ru-RU', {
+      month: 'long',
+    });
+    data.name = name.split(' ')[0];
     data.day = String(params).split(' ')[2];
-    data.month = arrMonth[params.getMonth()];
+    data.month = dtFormat.format(params);
     data.year = String(params).split(' ')[3];
     return data;
   }
