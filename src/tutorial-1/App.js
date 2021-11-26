@@ -1,9 +1,13 @@
 import React from 'react';
 
+import Profile from './Profile';
+import ProfileClass from './ProfileClass';
+
 function App() {
   return (
     <div>
-      <h1>tutorial-1</h1>
+      <Profile name="Вася Пупкин" registredAt={new Date(2021, 5, 22)} />
+      <ProfileClass name="Вася Пупкин" registredAt={new Date(2021, 5, 22)} />
     </div>
   );
 }
