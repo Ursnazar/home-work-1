@@ -20,8 +20,7 @@ function Form() {
     } else {
       console.log(email, password);
     }
-    event.target.email.value = '';
-    event.target.password.value = '';
+    event.target.reset();
   }
 
   return (
