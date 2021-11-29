@@ -20,7 +20,7 @@ code {
 .form {
   position: absolute;
   top: 30%;
-  left: 30%;
+  left: 40%;
   width: 200px;
   border: 1px solid gray;
   border-radius: 12px;
@@ -35,6 +35,12 @@ code {
 }
 
 .form > button {
-  width: 50px;
+  width: 100px;
   margin-top: 7px;
+}
+
+.tasklist {
+  margin-top: 50px;
+  border: 1px solid gray;
+  border-radius: 12px;
 }
