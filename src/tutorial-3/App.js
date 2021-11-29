@@ -61,7 +61,7 @@ const tasks = [
     let inputTitle = form.elements.title.value;
     let inputBody = form.elements.discription.value;
 
-    if (!inputTitle || !inputBody) {
+    if (!inputTitle.trim() || !inputBody.trim()) {
       alert('Заполните все поля формы');
       return;
     }
