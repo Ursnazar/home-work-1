@@ -37,6 +37,8 @@ const tasks = [
     let li = document.createElement('li');
     li.classList.add('tasklist__item');
 
+    li.setAttribute('data-set', id);
+
     let span = document.createElement('span');
     span.style.fontWeight = 'bold';
     span.textContent = title;
@@ -81,15 +83,19 @@ const tasks = [
 
     objectOfTask[newTask.id] = newTask;
 
-    return { ...newTask };
+    return newTask;
   }
 
   function onDeleteHandler({ target }) {
     if (target.classList.contains('delete')) {
+      let parent = target.closest('[data-set]');
+      let id = parent.dataset.set;
+      delete objectOfTask[id];
       let parent1 = target.parentElement;
       let paren2 = parent1.parentElement;
       let parent3 = paren2.parentElement;
       parent3.remove();
+      console.log(objectOfTask);
     }
   }
 })(tasks);
