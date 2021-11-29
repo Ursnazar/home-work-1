@@ -1,0 +1,55 @@
+ol,
+ul {
+  list-style: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+}
+
+.form {
+  width: 200px;
+  border: 1px solid gray;
+  border-radius: 12px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.form > input {
+  margin-bottom: 5px;
+}
+
+.form > button {
+  width: 100px;
+  margin-top: 7px;
+}
+
+.tasklist {
+  margin-top: 50px;
+  border: 1px solid gray;
+  border-radius: 12px;
+}
+
+.tasklist__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0;
+}
+
+.tasklist__item {
+  width: 500px;
+  border: 1px solid gray;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 5px;
+}
