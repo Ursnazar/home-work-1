@@ -2,55 +2,16 @@ import React from 'react';
 import EmptyBlock from './components/EmptyBlock';
 import Phrase from './components/Phrase';
 
+import { adjectivesArr1 } from './array/adjectivesArr';
+import { nounsArr1 } from './array/nounseArr';
+
 function App() {
+  const adjectivesArr = adjectivesArr1;
+  const nounsArr = nounsArr1;
+
   const [phrase, setPhrase] = React.useState([]);
 
   const newPhrase = [];
-
-  const adjectivesArr = [
-    'абсолютный',
-    'адский',
-    'азартный',
-    'активный',
-    'ангельский',
-    'астрономический',
-    'баснословный',
-    'безбожный',
-    'безбрежный',
-    'безвозвратный',
-    'безграничный',
-    'бездонный',
-    'бездушный',
-    'безжалостный',
-    'замечательно',
-    'замечательный',
-    'записной',
-    'запредельный',
-    'заядлый',
-    'звериный',
-    'зверский',
-    'зеленый',
-    'злой',
-    'злостный',
-    'значительный',
-    'неоспоримый',
-    'неотразимый',
-    'неоценимый',
-    'непередаваемый',
-  ];
-
-  const nounsArr = [
-    'лгун',
-    'день',
-    'конь',
-    'олень',
-    'человек',
-    'программист',
-    'ребёнок',
-    'конец',
-    'город',
-    'дурак',
-  ];
 
   function generateRandomNum(arr1, arr2) {
     let maxNumAdjectives = arr1.length;
