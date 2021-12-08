@@ -6,7 +6,7 @@ import Form from './components/Form';
 import styles from './style.module.scss';
 
 function App() {
-  const [state, setstate] = React.useState([]);
+  const [state, setstate] = React.useState(JSON.parse(localStorage.getItem('comments')));
 
   const dataComments = [];
 
@@ -51,12 +51,6 @@ function App() {
   function updateState() {
     setstate([...dataComments, ...state]);
   }
-
-  useEffect(() => {
-    const localComment = JSON.parse(localStorage.getItem('comments')) || [];
-    setstate(localComment);
-    // localStorage.removeItem('comments');
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('comments', JSON.stringify(state));
