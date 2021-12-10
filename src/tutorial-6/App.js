@@ -6,18 +6,7 @@ import styles from './style.module.scss';
 export default function App() {
   const { pathname } = window.location;
 
-  function getIdFromUrl(str) {
-    let iterationStr = String(str);
-    let id = '';
-
-    for (let i = 0; i < iterationStr.length; i++) {
-      if (i > 5) {
-        id += str[i];
-      }
-    }
-
-    return id;
-  }
+  const id = pathname.split('/')[2];
 
   return (
     <div className="App">
@@ -62,9 +51,7 @@ export default function App() {
         </Row>
       )}
       {/* ТУТ ДОПИСАТЬ РОУТ НА ПОЛНУЮ ЗАПИСЬ */}
-      {pathname === `/post/${getIdFromUrl(pathname)}` && (
-        <Artical getIdFromUrl={getIdFromUrl(pathname)} />
-      )}
+      {pathname === `/post/${id}` && <Artical id={id} />}
       {pathname === '/about' && (
         <Card>
           <Card.Body>Это мой личный сайт!</Card.Body>
