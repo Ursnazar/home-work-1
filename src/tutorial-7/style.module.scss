@@ -1,0 +1,24 @@
+.App {
+  max-width: 1000px;
+  margin: 7% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__button {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  & > button {
+    width: 100%;
+  }
+}
