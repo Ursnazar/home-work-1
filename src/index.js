@@ -13,7 +13,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import App from './tutorial-5/App';
 // import App from './tutorial-6/App';
 // import App from './tutorial-7/App';
-import App from './tutorial-7/AppReactHooksForm';
+// import App from './tutorial-7/AppReactHooksForm';
+// import App from './tutorial-7/AppReactHooksForm_Step_by_Step';
+import App from './tutorial-7/AppForContextForm';
 
 ReactDOM.render(
   <React.StrictMode>
