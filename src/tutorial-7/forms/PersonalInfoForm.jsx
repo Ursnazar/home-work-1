@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import style from './style.module.scss';
+import style from '../style.module.scss';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { string } from 'yup';
@@ -15,13 +15,11 @@ const schema = yup.object().shape({
   email: yup.string().email('This is not email').required(),
   password: yup.string().when('email', {
     is: (value) => value.includes('@'),
-    then: yup.string().min(6).max(12),
+    then: yup.string().min(6, 'Too Short').max(12),
   }),
 });
 
-console.log(schema);
-
-function App() {
+function PersonalInfoForm({ nextStep, setFormValue }) {
   const {
     register,
     handleSubmit,
@@ -33,7 +31,8 @@ function App() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    setFormValue(data);
+    nextStep('adress');
   };
 
   const handleClearForm = () => {
@@ -41,7 +40,7 @@ function App() {
   };
 
   return (
-    <div className={style.App}>
+    <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={style.form}>
           <h2>Registration form</h2>
@@ -59,6 +58,8 @@ function App() {
               style={{ marginBottom: '15px' }}
               name="lastName"
               {...register('lastName')}
+              helperText={errors.lastName && errors.lastName.message}
+              error={!!errors.lastName}
               label="Last Name"
               fullWidth
             />
@@ -68,12 +69,16 @@ function App() {
               style={{ marginBottom: '15px' }}
               name="email"
               {...register('email')}
+              helperText={errors.email && errors.email.message}
+              error={!!errors.email}
               label="E-mail"
               fullWidth
             />
             <TextField
               type="password"
               {...register('password')}
+              helperText={errors.password && errors.password.message}
+              error={!!errors.password}
               style={{ marginBottom: '15px' }}
               name="password"
               label="Password"
@@ -81,11 +86,11 @@ function App() {
             />
           </div>
           <div className={style.form__button}>
-            <Button onClick={handleSubmit(onSubmit)} variant="contained">
-              Register
-            </Button>
             <Button onClick={handleClearForm} variant="outlined">
               Clear form
+            </Button>
+            <Button onClick={handleSubmit(onSubmit)} variant="contained">
+              Next
             </Button>
           </div>
         </div>
@@ -94,4 +99,4 @@ function App() {
   );
 }
 
-export default App;
+export default PersonalInfoForm;
